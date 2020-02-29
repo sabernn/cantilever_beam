@@ -15,10 +15,15 @@ h=0.508e-3;     % Beam thickness (m)
 S=b*h;          % Cross section (m^2)
 I=b*h^3/12;     % Second moment of inertia of cross section wrt longitudinal axis (m^4)
 L=12e-3;        % Beam length (m)
-gamma=1e-5;     % Damping coefficient (1/s)
+gamma=0.01;     % Damping coefficient (1/s)
 z0=10e-3;       % Amplitude of excitation (m)
+wn=1000:30000;         % Natural Frequency (Hz)
 
 
 %% Solution of PDE
 
-A_res=4*z0/gammma/L*
+A_res=ResonanceAmplitude(z0,gamma,L,wn,rho,S,E,I);
+
+plot(wn,A_res)
+
+

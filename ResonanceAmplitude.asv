@@ -6,7 +6,7 @@ if gamma==0
     A=NaN;
     "The amplitude of resonance for an undamped system is infinity!"
 else
-    A=4*z0./gamma./L.*sqrt(wn)./nthroot(rho.*S./E./I,4);
+    A=4*z0/gamma/L*sqrt(wn)/nthroot(rho*S/E/I);
 end
 
 end
