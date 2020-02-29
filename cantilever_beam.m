@@ -9,7 +9,7 @@ clc
 clear
 
 E=200e9;        % Modullus of elasticity (Pa)
-rho=7850;       % Density (kg/m^3)
+rho=8220;       % Density (kg/m^3)
 b=3e-3;         % Beam width (m)
 h=0.508e-3;     % Beam thickness (m)
 S=b*h;          % Cross section (m^2)
@@ -17,13 +17,20 @@ I=b*h^3/12;     % Second moment of inertia of cross section wrt longitudinal axi
 L=12e-3;        % Beam length (m)
 gamma=0.01;     % Damping coefficient (1/s)
 z0=10e-3;       % Amplitude of excitation (m)
-wn=1000:30000;         % Natural Frequency (Hz)
+% w=1000:30000;         % Frequency (Hz)
 
 
-%% Solution of PDE
+%% Natural Frequencies
 
-A_res=ResonanceAmplitude(z0,gamma,L,wn,rho,S,E,I);
+[wn1,wn2]=BeamNatFreq(h,L,E,rho)
 
-plot(wn,A_res)
+plot(L,wn2/1000,'*')
+grid on
+
+%% Stress and Displacement Distributions
+
+% A_res=ResonanceAmplitude(z0,gamma,L,w,rho,S,E,I);
+% 
+% plot(w,A_res)
 
 
